@@ -11,5 +11,7 @@ class RencanaStudyViewModel : ViewModel() {
     private val _krsState = MutableStateFlow(RencanaStudi())
     val krsStateUi : StateFlow<RencanaStudi> = _krsState.asStateFlow()
 
-
+    fun setMataKuliah(mkPilihan: String) {
+        _krsState.update { stateMK -> stateMK.copy(mataKuliah = mkPilihan) }
+    }
 }
