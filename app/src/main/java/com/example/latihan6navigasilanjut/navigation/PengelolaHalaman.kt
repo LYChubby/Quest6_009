@@ -8,6 +8,8 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import com.example.latihan6navigasilanjut.ui.view.screen.SplashView
 import com.example.latihan6navigasilanjut.ui.view.viewmodel.MahasiswaViewModel
 import com.example.latihan6navigasilanjut.ui.view.viewmodel.RencanaStudyViewModel
 
@@ -31,6 +33,12 @@ fun PengelolaHalaman(
         startDestination = Halaman.Splash.name,
         modifier = modifier.padding()
     ) {
-
+        composable(route = Halaman.Splash.name) {
+            SplashView(
+                onMulaiButton = {
+                    navController.navigate(Halaman.Mahasiswa.name)
+                }
+            )
+        }
     }
 }
