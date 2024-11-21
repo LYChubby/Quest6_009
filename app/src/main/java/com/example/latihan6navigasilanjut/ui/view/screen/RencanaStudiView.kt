@@ -183,6 +183,13 @@ fun RencanaStudiView(
                         fontWeight = FontWeight.Light
                     )
                 }
+                Spacer(modifier = Modifier.padding(8.dp))
+                Row (
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.SpaceEvenly
+                ) {
+
+                }
             }
         }
     }
