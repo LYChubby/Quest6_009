@@ -17,6 +17,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Notifications
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
+import androidx.compose.material3.RadioButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -34,6 +35,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.latihan6navigasilanjut.R
 import com.example.latihan6navigasilanjut.data.MataKuliah
+import com.example.latihan6navigasilanjut.data.RuangKelas
 import com.example.latihan6navigasilanjut.model.Mahasiswa
 import com.example.latihan6navigasilanjut.model.RencanaStudi
 import com.example.latihan6navigasilanjut.ui.widget.DynamicSelectedField
@@ -146,7 +148,19 @@ fun RencanaStudiView(
                 Row (
                     modifier = Modifier.fillMaxWidth(),
                     horizontalArrangement = Arrangement.SpaceEvenly
-                ) {  }
+                ) {
+                    RuangKelas.kelas.forEach { data ->
+                        Row(verticalAlignment = Alignment.CenterVertically) {
+                            RadioButton(
+                                selected = pilihanKelas == data,
+                                onClick = {
+                                    pilihanKelas = data
+                                }
+                            )
+                            Text(data)
+                        }
+                    }
+                }
             }
         }
     }
