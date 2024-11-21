@@ -10,6 +10,7 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.example.latihan6navigasilanjut.ui.view.screen.MahasiswaFormView
+import com.example.latihan6navigasilanjut.ui.view.screen.RencanaStudiView
 import com.example.latihan6navigasilanjut.ui.view.screen.SplashView
 import com.example.latihan6navigasilanjut.ui.view.viewmodel.MahasiswaViewModel
 import com.example.latihan6navigasilanjut.ui.view.viewmodel.RencanaStudyViewModel
@@ -47,6 +48,18 @@ fun PengelolaHalaman(
                 onSubmitButtonClicked = {
                     mahasiswaViewModel.saveDataMahasiswa(it)
                     navController.navigate(Halaman.Matakuliah.name)
+                },
+                onBackButtonClicked = {
+                    navController.popBackStack()
+                }
+            )
+        }
+
+        composable(route = Halaman.Matakuliah.name) {
+            RencanaStudiView(
+                mahasiswa = mahasiswaUiState,
+                onSubmitButtonClicked = {
+                    krsViewModel.saveDataKRS(it)
                 },
                 onBackButtonClicked = {
                     navController.popBackStack()
