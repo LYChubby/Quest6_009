@@ -12,6 +12,7 @@ import androidx.navigation.compose.composable
 import com.example.latihan6navigasilanjut.ui.view.screen.MahasiswaFormView
 import com.example.latihan6navigasilanjut.ui.view.screen.RencanaStudiView
 import com.example.latihan6navigasilanjut.ui.view.screen.SplashView
+import com.example.latihan6navigasilanjut.ui.view.screen.TampilDataView
 import com.example.latihan6navigasilanjut.ui.view.viewmodel.MahasiswaViewModel
 import com.example.latihan6navigasilanjut.ui.view.viewmodel.RencanaStudyViewModel
 
@@ -60,7 +61,18 @@ fun PengelolaHalaman(
                 mahasiswa = mahasiswaUiState,
                 onSubmitButtonClicked = {
                     krsViewModel.saveDataKRS(it)
+                    navController.navigate(Halaman.Tampil.name)
                 },
+                onBackButtonClicked = {
+                    navController.popBackStack()
+                }
+            )
+        }
+
+        composable(route = Halaman.Tampil.name) {
+            TampilDataView(
+                dataMhs = mahasiswaUiState,
+                dataKrs = krsViewModel.krsStateUi.collectAsState().value,
                 onBackButtonClicked = {
                     navController.popBackStack()
                 }
